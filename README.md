@@ -17,11 +17,6 @@ Uma API feita em Java Spring Boot para cadastramento de veículos e acompanhamen
 É necessário ter o Postgres instalado.
 Será necessário criar um ADMIN root no banco de dados "teste" (gerado automaticamente pelo Spring Boot, caso não exista). 
 
-Você pode criá-lo de duas formas:
-
-  1. Criando diretamente no banco de dados (indicado).
-  2. Alterando o código do [.requestMatchers(HttpMethod.POST, "/auth/register").hasRole("ADMIN")](https://github.com/ArthurHab/frota-api/blob/24a6eb5a0b9cc8bcbb40e6a65894b77d9b7ffdd7/src/main/java/com/projeto/api/infra/security/SecurityConfigurations.java#L30) para .requestMatchers(HttpMethod.POST, "/auth/register").permitAll().
-
 ## Requisições
 
 É utilizado uma arquitetura de autenticação por Token, ou seja, para que seja possível acessar os EndPoints será necessário ser no mínimo um USER cadastrado.
