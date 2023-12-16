@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+﻿<h1 align="center">
+  Frota Frontend
+</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-executando-a-aplicação">Executando a aplicação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-backend">Backend</a>
+</p>
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-## Expanding the ESLint configuration
+- [Next JS](https://nextjs.org)    <img align="center" alt="Arthur-Angularjs" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg">
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [TypeScript](https://www.javascript.com/)    <img align="center" alt="Arthur-Ts" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
 
-- Configure the top-level `parserOptions` property like this:
+## 💻 Projeto
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Frota é um projeto que consome uma API feita em Spring boot. Esse projeto contém um sistema de autenticação, e é possível cadastrar e visualizar os dados de usuários do sistema, veiculos e abastecimentos.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## ✨ Layout
+
+<p align="center">
+  <img alt="layout" src="./github/assets/layout.png">
+</p>
+
+## 🔖 Como executar
+
+- Clone o repositório
+- Instale as dependências com `npm`
+- Inicie o servidor com `npm run start`
+
+Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
+
+## 🎬 Executando a aplicação
+
+<p align="center">
+  <img alt="layout" src="./github/assets/video1.gif">
+</p>
+
+<p align="center">
+  <img alt="layout" src="./github/assets/video2.gif">
+</p>
+
+<p align="center">
+  <img alt="layout" src="./github/assets/video3.gif">
+</p>
+
+## ⚙️ Backend 
+
+- [Frota-API](https://github.com/ArthurHab/frota-api)    <img align="center" alt="Arthur-Angularjs" height="30" width="40" src="https://user-images.githubusercontent.com/51391473/113920973-14da8880-97ab-11eb-8223-ffa85d487831.png">
