@@ -19,14 +19,14 @@ import com.example.frotaapibackend.services.VeiculoService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("veiculo")
 public class VeiculoController {
     
     @Autowired
     VeiculoService veiculoService;
 
-    @PostMapping("/cadastro")
+    @PostMapping("")
     public ResponseEntity<?> cadastrarVeiculo(@RequestBody @Valid VeiculoRecordDto veiculoRecordDto){
         return veiculoService.cadastrarVeiculo(veiculoRecordDto);
     }
@@ -41,14 +41,18 @@ public class VeiculoController {
         return veiculoService.veiculoPorPlaca(placa);
     }
 
-    @PutMapping("/alterar")
+    @PutMapping("")
     public ResponseEntity<?> alterarDadosVeiculo(@RequestBody @Valid VeiculoRecordDto veiculoRecordDto){
         return veiculoService.alterarDadosVeiculo(veiculoRecordDto);
     }
 
-    @DeleteMapping("/deletar/{placa}")
+    @DeleteMapping("/{placa}")
     public ResponseEntity<?> deletarVeiculo(@PathVariable String placa){
         return veiculoService.deletarVeiculo(placa);
+    }
+
+    public ResponseEntity<?> desativarVeiculo(@PathVariable String placa){
+        return veiculoService.desativarVeiculo(placa);
     }
     
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.frotaapibackend.services.UserService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("user")
 public class UserController {
 
@@ -24,7 +24,7 @@ public class UserController {
         return userService.usuariosCadastrados();
     }
 
-    @DeleteMapping("/deletar/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deletarUsuario(@PathVariable String id){
         return userService.deletarUsuario(id);
     }

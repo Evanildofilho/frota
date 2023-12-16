@@ -1,7 +1,6 @@
 package com.example.frotaapibackend.models;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,15 +18,15 @@ import lombok.Data;
 public class Abastecimento {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idAbasteciemento;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idAbasteciemento;
 
     @ManyToOne
     @JoinColumn(name = "veiculo_id")
     private Veiculo veiculo;
-
     private float litros;
     private int km;
+    private boolean activated;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 }
