@@ -17,7 +17,7 @@ import com.example.frotaapibackend.services.AuthenticationService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("auth")
 public class AuthenticationController {
     

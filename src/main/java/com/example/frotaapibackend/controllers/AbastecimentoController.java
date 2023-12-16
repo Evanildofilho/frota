@@ -1,7 +1,5 @@
 package com.example.frotaapibackend.controllers;
 
-import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,13 +20,13 @@ import com.example.frotaapibackend.services.AbastecimentoService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("abastecimento")
 public class AbastecimentoController {
     @Autowired
     AbastecimentoService abastecimentoService;
 
-    @PostMapping("/cadastro")
+    @PostMapping("")
     public ResponseEntity<?> cadastroAbastecimento(@RequestBody @Valid AbastecimentoRecordDto abastecimentoRecordDto){
         return abastecimentoService.cadastroAbastecimento(abastecimentoRecordDto);
     }
@@ -39,22 +37,22 @@ public class AbastecimentoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> abastecimentoPorId(@PathVariable UUID id){
+    public ResponseEntity<?> abastecimentoPorId(@PathVariable Long id){
         return abastecimentoService.abastecimentoPorId(id);
     }
 
-    @GetMapping("/veiculo/{placa}")
+    @GetMapping("/{placa}")
     public ResponseEntity<?> abastecimentosPorPlaca(@PathVariable String placa){
         return abastecimentoService.abastecimentosPorPlaca(placa);
     }
 
-    @PutMapping("/alterar")
+    @PutMapping("")
     public ResponseEntity<?> alterarAbastecimento(@RequestBody @Valid AbastecimentoAlterarRecordDto abastecimentoAlterarRecordDto){
         return abastecimentoService.alterarAbastecimento(abastecimentoAlterarRecordDto);
     }
 
-    @DeleteMapping("/deletar/{id}")
-    public ResponseEntity<?> deletarPorId(@PathVariable UUID id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarPorId(@PathVariable Long id){
         return abastecimentoService.deletarPorId(id);
     }
 }

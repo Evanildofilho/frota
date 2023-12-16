@@ -9,15 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.frotaapibackend.dtos.VeiculoRecordDto;
-import com.example.frotaapibackend.models.Mensagem;
+import com.example.frotaapibackend.models.NotaFiscal;
 import com.example.frotaapibackend.models.Veiculo;
 import com.example.frotaapibackend.repositories.VeiculoRepository;
 
 @Service
 public class VeiculoService {
-    
-    @Autowired
-    private Mensagem mensagem;
 
     @Autowired
     VeiculoRepository veiculoRepository;
@@ -25,8 +22,7 @@ public class VeiculoService {
     public ResponseEntity<?> cadastrarVeiculo(VeiculoRecordDto veiculoRecordDto){
 
         if(veiculoRepository.existsByPlaca(veiculoRecordDto.placa()) == true){
-            mensagem.setMensagem("Essa placa já está cadastrada no sistema!");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Essa placa já está cadastrada no sistema!");
         }
 
         var veiculo = new Veiculo();
@@ -42,8 +38,7 @@ public class VeiculoService {
     public ResponseEntity<?> veiculoPorPlaca(String placa){
 
         if(veiculoRepository.existsByPlaca(placa) == false){
-            mensagem.setMensagem("Veículo não encontrado!");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Veículo não encontrado!");
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(veiculoRepository.findByPlaca(placa));
@@ -52,7 +47,7 @@ public class VeiculoService {
     public ResponseEntity<?> alterarDadosVeiculo(VeiculoRecordDto veiculoRecordDto){
 
         if(veiculoRepository.existsByPlaca(veiculoRecordDto.placa()) == true){
-            var veiculo = new Veiculo();
+            Veiculo veiculo = new Veiculo();
             LocalDateTime created_at_temp = veiculoRepository.findByPlaca(veiculoRecordDto.placa()).getCreated_at();
             BeanUtils.copyProperties( veiculoRecordDto, veiculo);
             veiculo.setIdVeiculo(veiculoRepository.findByPlaca(veiculo.getPlaca()).getIdVeiculo());
@@ -60,18 +55,32 @@ public class VeiculoService {
             veiculo.setUpdated_at(LocalDateTime.now());
             return ResponseEntity.status(HttpStatus.OK).body(veiculoRepository.save(veiculo));
         }
-        mensagem.setMensagem("Veículo não encontrado!");
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Veículo não encontrado!");
     }
 
     public ResponseEntity<?> deletarVeiculo(String placa){
-        if(veiculoRepository.existsByPlaca(placa) == true){
-            veiculoRepository.delete(veiculoRepository.findByPlaca(placa));
-            mensagem.setMensagem("Veículo excluído com sucesso!");
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(mensagem);
+        try {
+            if(veiculoRepository.existsByPlaca(placa) == true){
+                veiculoRepository.delete(veiculoRepository.findByPlaca(placa));
+
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Veículo excluído com sucesso!");
         }
-        mensagem.setMensagem("Veículo não encontrado!");
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Veículo não encontrado!");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro das dependencias");
+        }
+    }
+
+    public ResponseEntity<?> desativarVeiculo(String placa){
+        if(veiculoRepository.existsByPlaca(placa) == true){
+            Veiculo veiculoAtivado = veiculoRepository.findByPlaca(placa);
+            Veiculo veiculoDesativado = new Veiculo();
+            BeanUtils.copyProperties( veiculoAtivado, veiculoDesativado);
+            veiculoDesativado.setActivated(false);
+            veiculoRepository.save(veiculoDesativado);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Veiculo desativada com sucesso!");
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Veiculo não encontrado!");
     }
 
 }

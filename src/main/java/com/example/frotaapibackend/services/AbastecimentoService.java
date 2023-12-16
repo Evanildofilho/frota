@@ -1,7 +1,6 @@
 package com.example.frotaapibackend.services;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.example.frotaapibackend.dtos.AbastecimentoAlterarRecordDto;
 import com.example.frotaapibackend.dtos.AbastecimentoRecordDto;
 import com.example.frotaapibackend.models.Abastecimento;
-import com.example.frotaapibackend.models.Mensagem;
 import com.example.frotaapibackend.models.Veiculo;
 import com.example.frotaapibackend.repositories.AbastecimentoRepository;
 import com.example.frotaapibackend.repositories.VeiculoRepository;
@@ -26,9 +24,6 @@ public class AbastecimentoService {
     @Autowired
     VeiculoRepository veiculoRepository;
 
-    @Autowired
-    Mensagem mensagem;
-
     public ResponseEntity<?> cadastroAbastecimento(AbastecimentoRecordDto abastecimentoRecordDto){
         if(veiculoRepository.existsByPlaca(abastecimentoRecordDto.placa())){
             Veiculo veiculo = veiculoRepository.findByPlaca(abastecimentoRecordDto.placa());
@@ -39,8 +34,7 @@ public class AbastecimentoService {
             return ResponseEntity.status(HttpStatus.CREATED).body(abastecimentoRepository.save(abastecimento));
         }
         
-        mensagem.setMensagem("Veículo não encontrado!");
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Veículo não encontrado!");
     }
 
     public ResponseEntity<?> abastecimentosCadastrados(){
@@ -53,16 +47,14 @@ public class AbastecimentoService {
             return ResponseEntity.status(HttpStatus.OK).body(abastecimentoRepository.findAllByVeiculo(veiculo));
         }
         
-        mensagem.setMensagem("Veículo não encontrado!");
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Veículo não encontrado!");
     }
 
-    public ResponseEntity<?> abastecimentoPorId(UUID id){
+    public ResponseEntity<?> abastecimentoPorId(Long id){
         if(abastecimentoRepository.existsById(id)){
             return ResponseEntity.status(HttpStatus.OK).body(abastecimentoRepository.findByidAbasteciemento(id));
         }
-        mensagem.setMensagem("Abastecimento não encontrado!");
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Abastecimento não encontrado!");
     }
 
     public ResponseEntity<?> alterarAbastecimento(AbastecimentoAlterarRecordDto abastecimentoAlterarRecordDto){
@@ -75,18 +67,15 @@ public class AbastecimentoService {
             return ResponseEntity.status(HttpStatus.OK).body(abastecimentoRepository.save(abastecimento));
         }
 
-        mensagem.setMensagem("Abastecimento não encontrado!");
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Abastecimento não encontrado!");
     }
 
-    public ResponseEntity<?> deletarPorId(UUID id){
+    public ResponseEntity<?> deletarPorId(Long id){
         if(abastecimentoRepository.existsById(id)){
             abastecimentoRepository.deleteById(id);
-            mensagem.setMensagem("Abastecimento excluído com sucesso!");
-            return ResponseEntity.status(HttpStatus.OK).body(mensagem);
+            return ResponseEntity.status(HttpStatus.OK).body("Abastecimento excluído com sucesso!");
         }
-        mensagem.setMensagem("Abastecimento não encontrado!");
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(mensagem);
-    }    
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Abastecimento não encontrado!");
+    }
 
 }
