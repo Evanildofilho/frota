@@ -1,5 +1,6 @@
 package com.example.frotaapibackend.models;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,6 +27,8 @@ public class User implements UserDetails{
     private String login;
     private String password;
     private UserRole role;
+    private LocalDateTime updated_at;
+    private LocalDateTime created_at;
 
     public User(){}
 
