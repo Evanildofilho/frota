@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.frotaapibackend.dtos.VeiculoRecordDto;
-import com.example.frotaapibackend.models.NotaFiscal;
 import com.example.frotaapibackend.models.Veiculo;
 import com.example.frotaapibackend.repositories.VeiculoRepository;
 

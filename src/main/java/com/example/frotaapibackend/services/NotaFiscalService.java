@@ -42,7 +42,7 @@ public class NotaFiscalService {
             NotaFiscal novoNotaFiscal = new NotaFiscal();
             BeanUtils.copyProperties(NotaFiscalDTO, novoNotaFiscal);
             LocalDateTime dataHoraAtual = LocalDateTime.now();
-            novoNotaFiscal.setCreatedAt(dataHoraAtual);
+            novoNotaFiscal.setCreated_at(dataHoraAtual);
             return ResponseEntity.status(HttpStatus.CREATED).body(notaFiscalRepository.save(novoNotaFiscal));
         }
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nº de nota fiscal já cadastrado");
@@ -51,10 +51,12 @@ public class NotaFiscalService {
 
     public ResponseEntity<?> alterarDadosNotaFiscal(NotaFiscalAlterarRecordDTO NotaFiscalAlterarDTO){
         if(notaFiscalRepository.existsById(NotaFiscalAlterarDTO.id()) == true){
+            LocalDateTime dataHoraCriada = notaFiscalRepository.findById(NotaFiscalAlterarDTO.id()).get().getCreated_at();
             NotaFiscal NotaFiscalAlterado = new NotaFiscal();
             BeanUtils.copyProperties( NotaFiscalAlterarDTO, NotaFiscalAlterado);
             LocalDateTime dataHoraAtual = LocalDateTime.now();
-            NotaFiscalAlterado.setUpdatedAt(dataHoraAtual);
+            NotaFiscalAlterado.setCreated_at(dataHoraCriada);
+            NotaFiscalAlterado.setUpdated_at(dataHoraAtual);
             return ResponseEntity.status(HttpStatus.OK).body(notaFiscalRepository.save(NotaFiscalAlterado));
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nota fiscal não encontrado!");
