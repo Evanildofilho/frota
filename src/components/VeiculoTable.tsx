@@ -26,6 +26,8 @@ const VeiculoTable = ({ veiculos, onAdicionarVeiculo }) => {
             <th className="py-2 px-4 font-semibold text-left">Consumo (km/l)</th>
             <th className="py-2 px-4 font-semibold text-left">Valor</th>
             <th className="py-2 px-4 font-semibold text-left">Quilometragem</th>
+            <th className="py-2 px-4 font-semibold text-left">Data de Criação</th>
+            <th className="py-2 px-4 font-semibold text-left">Data de Atualização</th>
           </tr>
         </thead>
         <tbody>
@@ -39,6 +41,8 @@ const VeiculoTable = ({ veiculos, onAdicionarVeiculo }) => {
               <td className="py-2 px-4">{veiculo.consumo}</td>
               <td className="py-2 px-4">{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(veiculo.valor)}</td>
               <td className="py-2 px-4">{veiculo.km} km</td>
+              <td className="py-2 px-4">{veiculo.created_at}</td>
+              <td className="py-2 px-4">{veiculo.updated_at}</td>
             </tr>
           ))}
         </tbody>
