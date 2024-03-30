@@ -22,6 +22,7 @@ const UserTable = ({ users, onAdicionarVeiculo, onDeleteUser }) => {
             <th className="py-2 px-4 font-semibold text-left">Role</th>
             <th className="py-2 px-4 font-semibold text-left">Username</th>
             <th className="py-2 px-4 font-semibold text-left">Enabled</th>
+            <th className="py-2 px-4 font-semibold text-left">Data de Criação</th>
             <th className="py-2 px-4 font-semibold text-left text-red-500">Excluir</th>
           </tr>
         </thead>
@@ -33,6 +34,7 @@ const UserTable = ({ users, onAdicionarVeiculo, onDeleteUser }) => {
               <td className="py-2 px-4">{user.role}</td>
               <td className="py-2 px-4">{user.username}</td>
               <td className="py-2 px-4">{user.enabled ? 'Yes' : 'No'}</td>
+              <td className="py-2 px-4">{user.created_at}</td>
               <td className="py-2 px-4">
                 <button
                   onClick={() => onDeleteUser(user.id)}
