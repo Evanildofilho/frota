@@ -1,5 +1,7 @@
 package com.example.frotaapibackend.services;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -40,7 +42,8 @@ public class AuthenticationService {
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(registerDTO.password());
         User newUser = new User(registerDTO.login(), encryptedPassword, registerDTO.role());
-
+        LocalDateTime dataHoraAtual = LocalDateTime.now();
+        newUser.setCreated_at(dataHoraAtual);
         this.userRepository.save(newUser);
 
         return ResponseEntity.ok().build();
