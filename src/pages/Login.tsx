@@ -41,7 +41,7 @@ function Login(){
       }
       
       axios
-        .post('http://localhost:8080/auth/login', {
+        .post('http://3.139.69.56:8080/auth/login', {
           login: userName,
           password: password,
         })

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Cookies from 'js-cookie';
 import axios from "axios";
 import LoadingMessage from "../components/LoadingMessage";
+import AbastecimentoDetails from "../components/AbastecimentoDetails";
 
 function AbastecimentosEdit() {
 
@@ -19,7 +20,7 @@ function AbastecimentosEdit() {
     const getNotaFiscal = () => {
       let token = Cookies.get('token');
       axios
-        .get(`http://localhost:8080/abastecimento/${id}`, {
+        .get(`http://3.139.69.56:8080/abastecimento/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -39,7 +40,7 @@ function AbastecimentosEdit() {
 
     return (
       <div>
-        <h1>abastecimento edit</h1>
+        <AbastecimentoDetails abastecimentoData={data}/>
       </div>
     );
 }

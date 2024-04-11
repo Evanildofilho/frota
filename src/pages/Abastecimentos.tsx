@@ -35,7 +35,7 @@ function Abastecimentos(){
     const onDeleteAbastecimento = (abastecimentosId) => {
       let token = Cookies.get('token');
       axios
-        .delete(`http://localhost:8080/abastecimento/${abastecimentosId}`, {headers: {
+        .delete(`http://3.139.69.56:8080/abastecimento/${abastecimentosId}`, {headers: {
           Authorization: `Bearer ${token}`,
         }},)
         .then((response) => {
@@ -69,7 +69,7 @@ function Abastecimentos(){
   
       let token = Cookies.get('token');
       axios
-        .post('http://localhost:8080/abastecimento', data, {headers: {
+        .post('http://3.139.69.56:8080/abastecimento', data, {headers: {
           Authorization: `Bearer ${token}`,
         }},)
         .then((response) => {
@@ -91,7 +91,7 @@ function Abastecimentos(){
     function getAbastecimentos() {
       let token = Cookies.get('token');
       axios
-        .get('http://localhost:8080/abastecimento', {
+        .get('http://3.139.69.56:8080/abastecimento', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

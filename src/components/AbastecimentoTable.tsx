@@ -1,6 +1,7 @@
 // components/AbastecimentoTable.js
 import React from 'react';
-import { FaPlus, FaTimes } from 'react-icons/fa';
+import { FaPen, FaPlus, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const AbastecimentoTable = ({ abastecimentos, onAdicionarAbastecimento, onDeleteAbastecimento }) => {
   return (
@@ -17,6 +18,7 @@ const AbastecimentoTable = ({ abastecimentos, onAdicionarAbastecimento, onDelete
       <table className="min-w-full border border-gray-300 divide-y divide-gray-300">
         <thead className="bg-gray-100">
           <tr>
+            <th className="py-2 px-4 font-semibold text-left">Actions</th>
             <th className="py-2 px-4 font-semibold text-left">ID Abastecimento</th>
             <th className="py-2 px-4 font-semibold text-left">Veículo</th>
             <th className="py-2 px-4 font-semibold text-left">Litros</th>
@@ -29,6 +31,7 @@ const AbastecimentoTable = ({ abastecimentos, onAdicionarAbastecimento, onDelete
         <tbody>
           {abastecimentos.map((abastecimento) => (
             <tr key={abastecimento.idAbasteciemento} className="hover:bg-gray-50">
+              <td className="py-2 px-4"><Link to={`/abastecimentos/${abastecimento.idAbasteciemento}`}><FaPen/></Link></td>
               <td className="py-2 px-4">{abastecimento.idAbasteciemento}</td>
               <td className="py-2 px-4">{abastecimento.veiculo.modelo}</td>
               <td className="py-2 px-4">{abastecimento.litros}</td>

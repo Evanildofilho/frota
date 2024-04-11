@@ -35,7 +35,7 @@ Frota é um projeto que consome uma API feita em Spring boot. Esse projeto cont�
 - Instale as dependências com `npm`
 - Inicie o servidor com `npm run start`
 
-Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
+Agora você pode acessar [`3.139.69.56:3000`](http://3.139.69.56:3000) do seu navegador.
 
 ## 🎬 Executando a aplicação
 
