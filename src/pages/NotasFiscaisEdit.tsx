@@ -20,7 +20,7 @@ function NotasFiscaisEdit() {
     const getNotaFiscal = () => {
       let token = Cookies.get('token');
       axios
-        .get(`http://3.139.69.56:8080/nota_fiscal/${id}`, {
+        .get(`http://localhost:8080/nota_fiscal/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

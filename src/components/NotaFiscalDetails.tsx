@@ -25,7 +25,7 @@ const NotasFiscaisDetails = ({ notaFiscalData }) => {
 
   const handleAtualizar = () => {
     const token = Cookies.get('token');
-    axios.put(`http://3.139.69.56:8080/nota_fiscal`, notaFiscal,{
+    axios.put(`http://localhost:8080/nota_fiscal`, notaFiscal,{
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -45,7 +45,7 @@ const NotasFiscaisDetails = ({ notaFiscalData }) => {
 
   const handleDeletar = () => {
     const token = Cookies.get('token');
-    axios.delete(`http://3.139.69.56:8080/nota_fiscal/${notaFiscal.id}`, {
+    axios.delete(`http://localhost:8080/nota_fiscal/${notaFiscal.id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -25,7 +25,7 @@ const VeiculoDetails = ({ veiculoData, addMessage }) => {
   
     const handleAtualizar = () => {
       const token = Cookies.get('token');
-      axios.put(`http://3.139.69.56:8080/veiculo`, veiculo,{
+      axios.put(`http://localhost:8080/veiculo`, veiculo,{
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -45,7 +45,7 @@ const VeiculoDetails = ({ veiculoData, addMessage }) => {
 
     const handleDeletar = () => {
       const token = Cookies.get('token');
-      axios.delete(`http://3.139.69.56:8080/veiculo/${veiculo.placa}`, {headers: {
+      axios.delete(`http://localhost:8080/veiculo/${veiculo.placa}`, {headers: {
         Authorization: `Bearer ${token}`,
       }},).then(() => {
         navigate('/veiculos');

@@ -31,7 +31,7 @@ function VeiculoEdit(){
     const getVeiculo = () => {
       let token = Cookies.get('token');
       axios
-        .get(`http://3.139.69.56:8080/veiculo/${placa}`, {
+        .get(`http://localhost:8080/veiculo/${placa}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

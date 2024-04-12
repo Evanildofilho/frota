@@ -22,7 +22,7 @@ const AbastecimentoModal = ({ isOpen, onClose, onFinalizarCadastro }) => {
     // Substitua a URL pela sua API de nomes de veículos
     let token = Cookies.get('token');
     axios
-      .get('http://3.139.69.56:8080/veiculo',{headers: {
+      .get('http://localhost:8080/veiculo',{headers: {
         Authorization: `Bearer ${token}`,
       }},)
       .then((response) => {

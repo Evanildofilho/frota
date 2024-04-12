@@ -38,7 +38,7 @@ function NotasFiscais() {
 
     let token = Cookies.get('token');
     axios
-      .post('http://3.139.69.56:8080/nota_fiscal', data, {
+      .post('http://localhost:8080/nota_fiscal', data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -62,7 +62,7 @@ function NotasFiscais() {
   const getNotasFiscais = () => {
     let token = Cookies.get('token');
     axios
-      .get('http://3.139.69.56:8080/nota_fiscal', {
+      .get('http://localhost:8080/nota_fiscal', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

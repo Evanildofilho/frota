@@ -35,7 +35,7 @@ function Users(){
     const handleDeletarUser = (userId) => {
       let token = Cookies.get('token');
       axios
-        .delete(`http://3.139.69.56:8080/user/deletar/${userId}`, {headers: {
+        .delete(`http://localhost:8080/user/deletar/${userId}`, {headers: {
           Authorization: `Bearer ${token}`,
         }})
         .then((response) => {
@@ -60,7 +60,7 @@ function Users(){
   
       let token = Cookies.get('token');
       axios
-        .post('http://3.139.69.56:8080/auth/register', data, {headers: {
+        .post('http://localhost:8080/auth/register', data, {headers: {
           Authorization: `Bearer ${token}`,
         }},)
         .then((response) => {
@@ -80,7 +80,7 @@ function Users(){
     function getUsers() {
       let token = Cookies.get('token');
       axios
-        .get('http://3.139.69.56:8080/user', {
+        .get('http://localhost:8080/user', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -72,7 +72,7 @@ export default function Veiculos() {
 
     let token = Cookies.get('token');
     axios
-      .post('http://3.139.69.56:8080/veiculo', data, {headers: {
+      .post('http://localhost:8080/veiculo', data, {headers: {
         Authorization: `Bearer ${token}`,
       }},)
       .then((response) => {
@@ -94,7 +94,7 @@ export default function Veiculos() {
   const getVeiculos = () => {
     let token = Cookies.get('token');
     axios
-      .get('http://3.139.69.56:8080/veiculo', {
+      .get('http://localhost:8080/veiculo', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

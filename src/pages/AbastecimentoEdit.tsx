@@ -20,7 +20,7 @@ function AbastecimentosEdit() {
     const getNotaFiscal = () => {
       let token = Cookies.get('token');
       axios
-        .get(`http://3.139.69.56:8080/abastecimento/${id}`, {
+        .get(`http://localhost:8080/abastecimento/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
