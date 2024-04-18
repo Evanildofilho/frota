@@ -35,7 +35,7 @@ function Users(){
     const handleDeletarUser = (userId) => {
       let token = Cookies.get('token');
       axios
-        .delete(`http://localhost:8080/user/deletar/${userId}`, {headers: {
+        .delete(`http://localhost:8080/user/${userId}`, {headers: {
           Authorization: `Bearer ${token}`,
         }})
         .then((response) => {
