@@ -41,7 +41,7 @@ public class AbastecimentoController {
         return abastecimentoService.abastecimentoPorId(id);
     }
 
-    @GetMapping("/{placa}")
+    @GetMapping("/placa/{placa}")
     public ResponseEntity<?> abastecimentosPorPlaca(@PathVariable String placa){
         return abastecimentoService.abastecimentosPorPlaca(placa);
     }
