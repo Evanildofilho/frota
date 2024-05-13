@@ -52,14 +52,13 @@ const NotasFiscaisDetails = ({ notaFiscalData }) => {
     })
     .then((response) => {
       console.log('Nota fiscal deletada com sucesso:', response);
+      navigate('/notas_fiscais');
       // Coloque aqui a lógica para tratar o sucesso da exclusão, se necessário
     })
     .catch((error) => {
       console.error('Erro ao deletar nota fiscal:', error);
       // Coloque aqui a lógica para tratar o erro na exclusão, se necessário
     });
-
-    navigate('/notas_fiscais');
   };
 
   return (

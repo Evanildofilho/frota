@@ -3,6 +3,12 @@ import React from 'react';
 import { FaPlus, FaTimes } from 'react-icons/fa';
 
 const UserTable = ({ users, onAdicionarVeiculo, onDeleteUser }) => {
+
+  const DeleteUserModalController = (id) => {
+    alert('tá indo');
+    onDeleteUser(id);
+  }
+  
   return (
     <div className="overflow-x-auto">
       <div className="flex justify-end mb-4">
@@ -37,7 +43,7 @@ const UserTable = ({ users, onAdicionarVeiculo, onDeleteUser }) => {
               <td className="py-2 px-4">{user.created_at}</td>
               <td className="py-2 px-4">
                 <button
-                  onClick={() => onDeleteUser(user.id)}
+                  onClick={() => DeleteUserModalController(user.id)}
                   className="text-red-500 hover:text-red-700 focus:outline-none"
                 >
                   <FaTimes />

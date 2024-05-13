@@ -37,7 +37,7 @@ const NotasFiscaisTable = ({ notasFiscais, onAdicionarNotaFiscal }) => {
               <td className="py-2 px-4">{notaFiscal.cnpj}</td>
               <td className="py-2 px-4">{notaFiscal.dataDeEmissao}</td>
               <td className="py-2 px-4">{notaFiscal.dataDeEntradaSaida}</td>
-              <td className="py-2 px-4"><Link to={`/nota_fiscal/${notaFiscal.numeroNotaFiscal}`}>Clique para editar!</Link></td>
+              <td className="py-2 px-4">{notaFiscal.descricaoProdutoServico}</td>
               <td className="py-2 px-4">{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(notaFiscal.valorNotaFiscal)}</td>
               <td className="py-2 px-4">{notaFiscal.created_at}</td>
               <td className="py-2 px-4">{notaFiscal.updated_at}</td>

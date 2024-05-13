@@ -31,7 +31,7 @@ const AbastecimentoTable = ({ abastecimentos, onAdicionarAbastecimento, onDelete
         <tbody>
           {abastecimentos.map((abastecimento) => (
             <tr key={abastecimento.idAbasteciemento} className="hover:bg-gray-50">
-              <td className="py-2 px-4"><Link to={`/abastecimentos/${abastecimento.idAbasteciemento}`}><FaPen/></Link></td>
+              <td className="py-2 px-4"><FaPen/></td> {/*<Link to={`/abastecimentos/${abastecimento.idAbasteciemento}`}></Link> */}
               <td className="py-2 px-4">{abastecimento.idAbasteciemento}</td>
               <td className="py-2 px-4">{abastecimento.veiculo.modelo}</td>
               <td className="py-2 px-4">{abastecimento.litros}</td>
