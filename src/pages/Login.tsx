@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import { useState } from 'react';
 import axios from 'axios';
 import Notification from '../components/Notification';
-import myImage from '../assets/macrosoft logo.jpeg';
+import myImage from '../assets/frete logo.jpeg';
 
 
 function Login(){
@@ -63,7 +63,7 @@ function Login(){
         <div className="bg-white p-8 rounded shadow-md w-96">
           <div className='flex justify-center gap-4'>
             <img src={myImage} className="w-11 h-11 object-cover rounded-lg" />
-            <p className='text-2xl font-semibold mb-4'>Macrosoft</p>
+            <p className='text-2xl font-semibold mb-4'>Frota</p>
           </div>
           <h1 className="text-2xl font-semibold mb-4">Login</h1>
           

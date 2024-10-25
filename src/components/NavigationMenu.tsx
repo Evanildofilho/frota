@@ -2,7 +2,7 @@
 import { FaUsers, FaCar, FaGasPump, FaSignOutAlt, FaPollH } from 'react-icons/fa';
 import { Link, useNavigate  } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import myImage from '../assets/macrosoft logo.jpeg';
+import myImage from '../assets/frete logo.jpeg';
 
 import Cookies from 'js-cookie';
 
@@ -24,7 +24,7 @@ const NavigationMenu = () => {
           {/* Título à esquerda */}
           <div className='flex items-center gap-3'>
             <img src={myImage} className="w-12 h-12 object-cover rounded-lg" />
-            <h1 className="text-2xl font-semibold">Macrosoft</h1>
+            <h1 className="text-2xl font-semibold">Frota</h1>
           </div>
     
           {/* Itens de navegação à direita */}
